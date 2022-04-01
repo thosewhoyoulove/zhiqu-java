@@ -4,7 +4,6 @@ public class User {
     String user_id;
     String username;
     String password;
-    String email;
     String phone;
     int status;
     String create_time;
@@ -33,14 +32,6 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -65,11 +56,10 @@ public class User {
         this.create_time = create_time;
     }
 
-    public User(String user_id, String username, String password, String email, String phone, int status, String create_time) {
+    public User(String user_id, String username, String password, String phone, int status, String create_time) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
-        this.email = email;
         this.phone = phone;
         this.status = status;
         this.create_time = create_time;
@@ -78,10 +68,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id='" + user_id + '\'' +
+                "user_id='" + user_id + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", status=" + status +
                 ", create_time='" + create_time + '\'' +

@@ -2,6 +2,7 @@ package web.Entry;
 
 public class File {
     String file_id;
+    String file_topic;
     String file_name;
     String file_url;
     String file_type;
@@ -9,9 +10,11 @@ public class File {
     int like_count;
     int download_count;
     int click_count;
+    boolean ifCan_download;
 
-    public File(String file_id, String file_name, String file_url, String file_type, String upload_time, int like_count, int download_count, int click_count) {
+    public File(String file_id, String file_topic, String file_name, String file_url, String file_type, String upload_time, int like_count, int download_count, int click_count, boolean ifCan_download) {
         this.file_id = file_id;
+        this.file_topic = file_topic;
         this.file_name = file_name;
         this.file_url = file_url;
         this.file_type = file_type;
@@ -19,6 +22,7 @@ public class File {
         this.like_count = like_count;
         this.download_count = download_count;
         this.click_count = click_count;
+        this.ifCan_download = ifCan_download;
     }
 
     public String getFile_id() {
@@ -27,6 +31,14 @@ public class File {
 
     public void setFile_id(String file_id) {
         this.file_id = file_id;
+    }
+
+    public String getFile_topic() {
+        return file_topic;
+    }
+
+    public void setFile_topic(String file_topic) {
+        this.file_topic = file_topic;
     }
 
     public String getFile_name() {
@@ -85,10 +97,19 @@ public class File {
         this.click_count = click_count;
     }
 
+    public boolean isIfCan_download() {
+        return ifCan_download;
+    }
+
+    public void setIfCan_download(boolean ifCan_download) {
+        this.ifCan_download = ifCan_download;
+    }
+
     @Override
     public String toString() {
-        return "file{" +
-                "id='" + file_id + '\'' +
+        return "File{" +
+                "file_id='" + file_id + '\'' +
+                ", file_topic='" + file_topic + '\'' +
                 ", file_name='" + file_name + '\'' +
                 ", file_url='" + file_url + '\'' +
                 ", file_type='" + file_type + '\'' +
@@ -96,6 +117,7 @@ public class File {
                 ", like_count=" + like_count +
                 ", download_count=" + download_count +
                 ", click_count=" + click_count +
+                ", ifCan_download=" + ifCan_download +
                 '}';
     }
 }

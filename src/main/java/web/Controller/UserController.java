@@ -7,12 +7,8 @@ import web.Dao.UserDao;
 
 @RestController
 public class UserController {
-    @Autowired
-    UserDao userDao;
-    @Value("${absoluteImgPath}")
-    String absoluteImgPath;
-    @Value("${sonImgPath}")
-    String sonImgPath;
+
+
 
 
 
