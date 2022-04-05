@@ -5,7 +5,6 @@
 <mapper namespace="web.Dao.UserDao">
 
 
-
 </mapper>
         <!--    <insert id="addUser" parameterType="minsc.time_app.Entry.User">-->
         <!--        insert into user(id, name, pass, src) values (0, #{name}, #{pass}, #{src})-->
