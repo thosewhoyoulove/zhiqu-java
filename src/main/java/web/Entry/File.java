@@ -11,8 +11,10 @@ public class File {
     int download_count;
     int click_count;
     boolean ifCan_download;
+    String file_subject;
+    int level;
 
-    public File(String file_id, String file_topic, String file_name, String file_url, String file_type, String upload_time, int like_count, int download_count, int click_count, boolean ifCan_download) {
+    public File(String file_id, String file_topic, String file_name, String file_url, String file_type, String upload_time, int like_count, int download_count, int click_count, boolean ifCan_download, String file_subject, int level) {
         this.file_id = file_id;
         this.file_topic = file_topic;
         this.file_name = file_name;
@@ -23,7 +25,10 @@ public class File {
         this.download_count = download_count;
         this.click_count = click_count;
         this.ifCan_download = ifCan_download;
+        this.file_subject = file_subject;
+        this.level = level;
     }
+
 
     public String getFile_id() {
         return file_id;
@@ -105,6 +110,22 @@ public class File {
         this.ifCan_download = ifCan_download;
     }
 
+    public String getFile_subject() {
+        return file_subject;
+    }
+
+    public void setFile_subject(String file_subject) {
+        this.file_subject = file_subject;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     @Override
     public String toString() {
         return "File{" +
@@ -118,6 +139,8 @@ public class File {
                 ", download_count=" + download_count +
                 ", click_count=" + click_count +
                 ", ifCan_download=" + ifCan_download +
+                ", file_subject='" + file_subject + '\'' +
+                ", level=" + level +
                 '}';
     }
 }
