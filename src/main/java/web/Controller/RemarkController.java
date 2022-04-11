@@ -9,6 +9,9 @@ import web.Dao.RemarkDao;
 import web.Dao.VisitDao;
 import web.Entry.Remark;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @RestController
 public class RemarkController {
     @Autowired
@@ -16,8 +19,10 @@ public class RemarkController {
 
     //添加一条评论
     @RequestMapping("/addRecord")
-    public boolean addRecord(@RequestParam("remark_id") String remark_id, @RequestParam("user_id") String user_id, @RequestParam("file_id") String file_id,
-                             @RequestParam("remark_content") String remark_content, @RequestParam("remark_time") String remark_time) {
+    public boolean addRecord(@RequestParam("user_id") String user_id, @RequestParam("file_id") String file_id, @RequestParam("remark_content") String remark_content) {
+        String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+        String remark_time = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date());
+        String remark_id = "remark_" + timestamp;
         Remark remark = new Remark(remark_id, user_id, file_id, remark_content, remark_time);
         if (remarkDao.addRemark(remark) > 0){
             return true;

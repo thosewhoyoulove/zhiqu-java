@@ -5,6 +5,6 @@
 <mapper namespace="web.Dao.RemarkDao">
 
     <insert id="addRemark" parameterType="web.Entry.Remark">
-
+        insert into Remark(remark_id, user_id, file_id, remark_content, remark_time) values (#{remark_id}, #{user_id}, #{file_id}, #{remark_content}, #{remark_time})
     </insert>
 </mapper>

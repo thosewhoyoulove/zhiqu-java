@@ -13,4 +13,11 @@
     <update id="addFileLike" parameterType="web.Entry.File">
         update File set like_count = #{like_count} where file_id = #{file_id}
     </update>
+    <insert id="addFile" parameterType="web.Entry.File">
+        insert into File(file_id, file_topic, file_name, file_url, file_type, upload_time, like_count, download_count, click_count, ifCan_download, file_subject, level)
+        values (#{file_id}, #{file_topic},#{file_name},#{file_url},#{file_type},#{upload_time,#{like_count},#{download_count},#{click_count},#{ifCan_download},#{file_subject},#{level},)
+    </insert>
+    <select id="getSpecificFileList" resultType="web.Entry.File">
+        select * from File where file_subject = #{file_subject} and level = #{level}
+    </select>
 </mapper>
