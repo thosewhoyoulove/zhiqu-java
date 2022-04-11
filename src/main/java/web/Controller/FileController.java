@@ -10,12 +10,14 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import web.Dao.FileDao;
 import web.Dao.UserDao;
+import web.Utils.IfTodayUtils;
 
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -27,6 +29,63 @@ public class FileController {
     @Value("${sonImgPath}")
     String sonImgPath;
 
+
+
+
+    //获取文件列表
+    @RequestMapping("/getFileList")
+    public List<web.Entry.File> getFileList(){
+        return fileDao.getFileList();
+    }
+
+    //获取单个文件
+    @RequestMapping("/getSingleFile")
+    public web.Entry.File getSingleFile(String file_id){
+        return fileDao.getSingleFile(file_id);
+    }
+
+    //获取今日更新量
+    @RequestMapping("/getTodayFileUpdateNumber")
+    public int getTodayUpdateNumber(){
+        List<web.Entry.File> fileList = fileDao.getFileList();
+        int count = 0;
+        for (web.Entry.File file : fileList) {
+            if (IfTodayUtils.isToday(file.getUpload_time())){
+                count++;
+            }
+        }
+        return count;
+    }
+    //获取总文件数
+    @RequestMapping("/getTotalFileNumber")
+    public int getTotalFileNumber(){
+        return fileDao.getFileList().size();
+    }
+
+    //搜索文件
+    @RequestMapping("/searchFile")
+    public web.Entry.File searchFile(String file_id){
+        return getSingleFile(file_id);
+    }
+
+    //文件点赞
+    @RequestMapping("/addFileLike")
+    public boolean addFileLike(String file_id){
+        web.Entry.File singleFile = getSingleFile(file_id);
+        int like_count = singleFile.getLike_count();
+        if(fileDao.addFileLike(file_id, like_count + 1) > 0){
+            return true;
+        }
+        return false;
+    }
+
+
+
+
+
+
+
+    //上传文件
     @RequestMapping("/upload")
     public String upload(HttpSession session, @RequestParam("file") MultipartFile file) {
         System.out.println("准备上传");
@@ -67,4 +126,6 @@ public class FileController {
     public boolean addFileToDB() {
         return false;
     }
+
+
 }

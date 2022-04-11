@@ -1,8 +1,11 @@
 package web.Dao;
 
 import org.springframework.stereotype.Repository;
+import web.Entry.Visit;
+
+import java.util.List;
 
 @Repository
-public class VisitDao {
-
+public interface VisitDao {
+    public List<Visit> getVisitList();
 }
