@@ -11,6 +11,7 @@ import web.Entry.Remark;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class RemarkController {
@@ -29,5 +30,11 @@ public class RemarkController {
         }
 
         return false;
+    }
+
+    //获取对应文件的评论
+    @RequestMapping("/getSpecificFileRemark")
+    public List<Remark> getSpecificFileRemark(@RequestParam("file_id") String file_id){
+        return remarkDao.getSpecificFileRemark(file_id);
     }
 }
