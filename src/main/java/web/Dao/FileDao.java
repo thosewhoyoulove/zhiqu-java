@@ -22,5 +22,5 @@ public interface FileDao {
 
     public int addFile(File file);
 
-    public List<web.Entry.File> getSpecificFileList(@Param("file_subject") String file_subject, @Param("level") int level);
+    public List<web.Entry.File> getSpecificFileList(@Param("file_subject") String file_subject, @Param("level") int level, @Param("file_type") String file_type);
 }

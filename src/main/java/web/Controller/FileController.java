@@ -41,8 +41,8 @@ public class FileController {
 
     //获取对应科目文件列表
     @RequestMapping("/getSpecificFileList")
-    public List<web.Entry.File> getSpecificFileList(@RequestParam("file_subject") String file_subject, @RequestParam("level") int level) {
-        return fileDao.getSpecificFileList(file_subject, level);
+    public List<web.Entry.File> getSpecificFileList(@RequestParam("file_subject") String file_subject, @RequestParam("level") int level, @RequestParam("file_type") String file_type) {
+        return fileDao.getSpecificFileList(file_subject, level, file_type);
     }
 
     //获取单个文件
