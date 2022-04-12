@@ -14,6 +14,10 @@ public interface FileDao {
 
     public int addFileLike(@Param("file_id") String file_id, @Param("like_count") int like_count);
 
+    public int addFileDownload(@Param("file_id") String file_id, @Param("download_count") int download_count);
+
+    public int addFileClick(@Param("file_id") String file_id, @Param("click_count") int click_count);
+
     public File getSingleFile(@Param("file_id") String file_id);
 
     public int addFile(File file);

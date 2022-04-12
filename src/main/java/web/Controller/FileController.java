@@ -84,12 +84,34 @@ public class FileController {
         return res;
     }
 
-    //文件点赞
+    //文件点赞+1
     @RequestMapping("/addFileLike")
     public boolean addFileLike(@RequestParam("file_id") String file_id) {
         web.Entry.File singleFile = getSingleFile(file_id);
         int like_count = singleFile.getLike_count();
         if (fileDao.addFileLike(file_id, like_count + 1) > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    //文件下载量+1
+    @RequestMapping("/addFileDownload")
+    public boolean addFileDownload(@RequestParam("file_id") String file_id) {
+        web.Entry.File singleFile = getSingleFile(file_id);
+        int download_count = singleFile.getLike_count();
+        if (fileDao.addFileDownload(file_id, download_count + 1) > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    //文件点击量+1
+    @RequestMapping("/addFileClick")
+    public boolean addFileClick(@RequestParam("file_id") String file_id) {
+        web.Entry.File singleFile = getSingleFile(file_id);
+        int click_count = singleFile.getLike_count();
+        if (fileDao.addFileClick(file_id, click_count + 1) > 0) {
             return true;
         }
         return false;

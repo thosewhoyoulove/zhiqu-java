@@ -7,4 +7,8 @@
     <select id="getVisitList" resultType="web.Entry.Visit">
         select * from Visit
     </select>
+    <insert id="addVisitCount" parameterType="web.Entry.Visit">
+        insert into Visit(visit_id, user_id, visit_time) values (#{visit_id}, #{user_id}, #{visit_time})
+    </insert>
+
 </mapper>
