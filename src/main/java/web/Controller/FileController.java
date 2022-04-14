@@ -1,5 +1,6 @@
 package web.Controller;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.ResourceUtils;
@@ -41,8 +42,8 @@ public class FileController {
 
     //获取对应科目文件列表
     @RequestMapping("/getSpecificFileList")
-    public List<web.Entry.File> getSpecificFileList(@RequestParam("file_subject") String file_subject, @RequestParam("level") int level, @RequestParam("file_type") String file_type) {
-        return fileDao.getSpecificFileList(file_subject, level, file_type);
+    public String getSpecificFileList(@RequestParam("file_subject") String file_subject, @RequestParam("level") int level, @RequestParam("file_type") String file_type) {
+        return JSON.toJSONString(fileDao.getSpecificFileList(file_subject, level, file_type));
     }
 
     //获取单个文件
@@ -72,7 +73,7 @@ public class FileController {
 
     //搜索文件
     @RequestMapping("/searchFile")
-    public List<web.Entry.File> searchFile(@RequestParam("key") String key) {
+    public String searchFile(@RequestParam("key") String key) {
         List<web.Entry.File> res = new ArrayList<>();
         List<web.Entry.File> fileList = getFileList();
         for (web.Entry.File file : fileList) {
@@ -81,7 +82,7 @@ public class FileController {
                 res.add(file);
             }
         }
-        return res;
+        return JSON.toJSONString(res);
     }
 
     //文件点赞+1
