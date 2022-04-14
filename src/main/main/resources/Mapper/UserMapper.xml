@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="web.Dao.UserDao">
+
+
+</mapper>
+        <!--    <insert id="addUser" parameterType="minsc.time_app.Entry.User">-->
+        <!--        insert into user(id, name, pass, src) values (0, #{name}, #{pass}, #{src})-->
+        <!--    </insert>-->
+        <!--    <select id="login" resultType="minsc.time_app.Entry.User">-->
+        <!--        select * from user where name = #{name}-->
+        <!--    </select>-->
+        <!--    <select id="queryNameIfExist" resultType="minsc.time_app.Entry.User">-->
+        <!--        select * from user where name = #{name}-->
+        <!--    </select>-->
+        <!--    <insert id="addRecord" parameterType="minsc.time_app.Entry.Record">-->
+        <!--        insert into record(id, title, date, emo, classify, repeated, name) values (#{id}, #{title}, #{date}, #{emo}, #{classify}, #{repeated}, #{name})-->
+        <!--    </insert>-->
+        <!--    <delete id="clearAllRecord" parameterType="java.lang.String">-->
+        <!--        delete from record where name = #{name}-->
+        <!--    </delete>-->
+        <!--    <select id="queryAllRecord" resultType="minsc.time_app.Entry.Record">-->
+        <!--        select * from record where name = #{name}-->
+        <!--    </select>-->
+        <!--    <update id="addImgUrl" parameterType="java.lang.String">-->
+        <!--        update user set src = #{imgUrl} where name = #{name}-->
+        <!--    </update>-->
+        <!--    <select id="getImgUrl" resultType="java.lang.String">-->
+        <!--        select src from user where name = #{name}-->
+        <!--    </select>-->
