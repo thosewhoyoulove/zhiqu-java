@@ -11,4 +11,8 @@
     <select id="getSpecificFileRemark" resultType="web.Entry.Remark">
         select * from Remark where file_id = #{file_id}
     </select>
+
+    <delete id="deleteARecord" parameterType="java.lang.String">
+        delete from Remark where remark_id = #{remark_id}
+    </delete>
 </mapper>

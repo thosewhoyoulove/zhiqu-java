@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="web.Dao.ForumDao">
+    <select id="getAllTag" resultType="web.Entry.Forum">
+         select * from Forum
+    </select>
+    <insert id="addForumRemark" parameterType="web.Entry.Remark">
+        insert into Remark(remark_id, user_id, file_id, remark_content, remark_time) values (#{remark_id}, #{user_id}, #{file_id}, #{remark_content}, #{remark_time})
+    </insert>
+    <insert id="addTag" parameterType="web.Entry.Forum">
+        insert into Forum(forum_id, forum_topic, user_id, forum_time, forum_visitCount, forum_replyCount, forum_tag) values (#{forum_id}, #{forum_topic}, #{user_id}, #{forum_time}, #{forum_visitCount}, #{forum_replyCount}, #{forum_tag})
+    </insert>
+    <select id="getSpecificForum" resultType="web.Entry.Forum">
+        select * from Forum where forum_id = #{forum_id}
+    </select>
+    <select id="getSpecificForumAllRecord" resultType="web.Entry.Remark">
+        select * from Remark where file_id = #{forum_id}
+    </select>
+    <delete id="deleteAForumRecord" parameterType="java.lang.String">
+        delete from Remark where remark_id = #{remark_id}
+    </delete>
+
+</mapper>

@@ -11,4 +11,6 @@ public interface RemarkDao {
     public int addRemark(Remark remark);
 
     public List<Remark> getSpecificFileRemark(@Param("file_id") String file_id);
+
+    public int deleteARecord(@Param("remark_id") String remark_id);
 }

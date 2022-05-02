@@ -1,18 +1,16 @@
 package web.Entry;
 
-import com.alibaba.fastjson.annotation.JSONField;
+public class UserToken {
 
-public class User {
-    String user_id;
-    String username;
-    String password;
-    int status;
-    String class_name;
+    private String user_id;
 
-    public User(String user_id, String username, String password, int status, String class_name) {
+    private String username;
+    private int status;
+    private String class_name;
+
+    public UserToken(String user_id, String username, int status, String class_name) {
         this.user_id = user_id;
         this.username = username;
-        this.password = password;
         this.status = status;
         this.class_name = class_name;
     }
@@ -33,14 +31,6 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public int getStatus() {
         return status;
     }
@@ -59,10 +49,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserToken{" +
                 "user_id='" + user_id + '\'' +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", status=" + status +
                 ", class_name='" + class_name + '\'' +
                 '}';

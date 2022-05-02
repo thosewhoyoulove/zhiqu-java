@@ -21,9 +21,15 @@
     </update>
     <insert id="addFile" parameterType="web.Entry.File">
         insert into File(file_id, file_topic, file_name, file_url, file_type, upload_time, like_count, download_count, click_count, ifCan_download, file_subject, level)
-        values (#{file_id}, #{file_topic}, #{file_name}, #{file_url}, #{file_type}, #{upload_time}, #{like_count}, #{download_count}, #{click_count}, #{ifCan_download}, #{file_subject}, #{level},)
+        values (#{file_id}, #{file_topic}, #{file_name}, #{file_url}, #{file_type}, #{upload_time}, #{like_count}, #{download_count}, #{click_count}, #{ifCan_download}, #{file_subject}, #{level})
     </insert>
     <select id="getSpecificFileList" resultType="web.Entry.File">
         select * from File where file_subject = #{file_subject} and level = #{level} and file_type = #{file_type}
     </select>
+    <select id="getFileByFileID" resultType="web.Entry.File">
+        select * from File where file_id = #{file_id}
+    </select>
+    <delete id="deleteDBFile" parameterType="java.lang.String">
+        delete from File where file_id = #{file_id}
+    </delete>
 </mapper>
